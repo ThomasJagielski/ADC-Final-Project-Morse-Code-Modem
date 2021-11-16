@@ -29,27 +29,47 @@ stem(max_peaks(1,:),max_peaks(2,:))
 
 %%
 value = [];
-for a=2:max(length(max_peaks))
-    if a == 1
-    if max_peaks(2,a) > 1500
-        value(a) = 1;
-    elseif (500 < max_peaks(2,a) && max_peaks(2,a) < 1500)
-        value(a) = -1;
-    elseif max_peaks(2,a) < 500
-        value(a) = 0;
+counter = 0;
+for a=1:max(length(max_peaks))
+    if counter >= 7
+        counter = 0;
+        value(end + 1) = 0;
     end
-    
-    if max_peaks(2,a) > 1500
-        if value(a-1) ~= 1
+    if (a == 1)
+        if max_peaks(2,a) > 1500
             value(a) = 1;
-        end
-    elseif (500 < max_peaks(2,a) && max_peaks(2,a) < 1500)
-        if value(a-1) ~= -1
+        elseif (500 < max_peaks(2,a) && max_peaks(2,a) < 1500)
             value(a) = -1;
-        end
-    elseif max_peaks(2,a) < 500
-        if value(a-1) ~= 0
+        elseif max_peaks(2,a) < 500
             value(a) = 0;
         end
-    end
+    else    
+        if max_peaks(2,a) > 1500
+            if value(end) ~= 1
+                value(end+1) = 1;
+            end
+            counter = 0;
+        elseif (500 < max_peaks(2,a) && max_peaks(2,a) < 1500)
+            if value(end) ~= -1
+                value(end+1) = -1;
+            end
+            counter = 0;
+        elseif max_peaks(2,a) < 500
+            if value(end) ~= 0
+                value(end+1) = 0;
+            else
+                counter = counter + 1;
+            end
+        end
+        counter
+    end 
+end
+
+value
+
+output_morse = ''
+
+for k=1:max(length(value))
+    if value(k) = 1
+        
 end

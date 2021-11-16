@@ -1,7 +1,7 @@
 clear; clc; close all;
 
 %[audioIn,fs] = audioread('440Hz_44100Hz_16bit_05sec.wav');
-morse_code('Hello', 0)
+input_morse = morse_code('Hello', 0)
 [audioIn,fs] = audioread('morse_code_signal.wav');
 
 figure
@@ -66,3 +66,22 @@ for a=1:max(length(max_peaks))
 end
 
 value
+
+output_morse = '';
+
+for k=1:max(length(value))
+    if (value(k) == 1)
+        output_morse(end + 1) = '.';
+    elseif (value(k) == -1)
+        output_morse(end + 1) = '-';
+    end
+    if (value(k) == 0 && value(k-1) == 0)
+        if output_morse(end) ~= '|'
+            output_morse(end + 1) = '|';
+        end
+    end
+end
+
+output_morse
+
+accuracy_rate = mean(input_morse == output_morse)
