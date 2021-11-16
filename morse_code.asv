@@ -1,4 +1,4 @@
-function [morseText,morseSound] = morse_code(string, playSound)
+function [morseText,morseSound] = morse_code(string,playSound)
  
 %% Translate AlphaNumeric Text to Morse Text
  
@@ -40,12 +40,12 @@ function [morseText,morseSound] = morse_code(string, playSound)
 %% Translate Morse Text to Morse Audio
  
     %Generate the tones for each element of the code
-    SamplingFrequency = 20000*2; %Hz
+    SamplingFrequency = 8192; %Hz
     ditLength = .1; %s
     dit = (0:1/SamplingFrequency:ditLength);
     dah = (0:1/SamplingFrequency:3*ditLength);
-    dit = cos(12000*dit);
-    dah = cos(6000*dah);
+    dit = cos(6000*dit);
+    dah = cos(2000*dah);
     silent = zeros(1,length(dit));
  
     %A dictionary of the audio components of each symbol
