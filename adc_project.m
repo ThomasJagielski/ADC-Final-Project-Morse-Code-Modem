@@ -29,7 +29,12 @@ stem(max_peaks(1,:),max_peaks(2,:))
 
 %%
 value = [];
+counter = 0;
 for a=1:max(length(max_peaks))
+    if counter >= 7
+        counter = 0;
+        value(end + 1) = 0;
+    end
     if (a == 1)
         if max_peaks(2,a) > 1500
             value(a) = 1;
@@ -43,15 +48,20 @@ for a=1:max(length(max_peaks))
             if value(end) ~= 1
                 value(end+1) = 1;
             end
+            counter = 0;
         elseif (500 < max_peaks(2,a) && max_peaks(2,a) < 1500)
             if value(end) ~= -1
                 value(end+1) = -1;
             end
+            counter = 0;
         elseif max_peaks(2,a) < 500
             if value(end) ~= 0
                 value(end+1) = 0;
+            else
+                counter = counter + 1;
             end
         end
+        counter
     end 
 end
 
