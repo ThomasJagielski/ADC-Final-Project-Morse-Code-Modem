@@ -1,7 +1,7 @@
 clear; clc; close all;
 
 %[audioIn,fs] = audioread('440Hz_44100Hz_16bit_05sec.wav');
-input_morse = morse_code('Hello', 0)
+input_morse = morse_code('Hello', 1)
 [audioIn,fs] = audioread('morse_code_signal.wav');
 
 figure
