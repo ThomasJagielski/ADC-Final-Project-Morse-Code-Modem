@@ -68,20 +68,29 @@ end
 value
 
 output_morse = '';
+word_to_decode = '';
+decoded_sentence = '';
 
 for k=1:max(length(value))
     if (value(k) == 1)
         output_morse(end + 1) = '.';
+        word_to_decode(end + 1) = '.';
     elseif (value(k) == -1)
         output_morse(end + 1) = '-';
+        word_to_decode(end + 1) = '-';
     end
     if (value(k) == 0 && value(k-1) == 0)
         if output_morse(end) ~= '|'
             output_morse(end + 1) = '|';
+            decoded_sentence(end + 1) = morse_code_decoder(word_to_decode);
+            word_to_decode = '';
         end
     end
 end
 
+decoded_sentence(end + 1) = morse_code_decoder(word_to_decode);
+
 output_morse
+decoded_sentence
 
 accuracy_rate = mean(input_morse == output_morse)
