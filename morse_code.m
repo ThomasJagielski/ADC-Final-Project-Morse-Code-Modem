@@ -41,7 +41,7 @@ function [morseText,morseSound] = morse_code(string, playSound)
  
     %Generate the tones for each element of the code
     SamplingFrequency = 20000*2; %Hz
-    ditLength = .1; %s
+    ditLength = .5; %s
     dit = (0:1/SamplingFrequency:ditLength);
     dah = (0:1/SamplingFrequency:3*ditLength);
     dit = cos(12000*dit);
