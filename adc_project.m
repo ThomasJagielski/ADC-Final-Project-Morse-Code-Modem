@@ -1,10 +1,10 @@
 clear; clc; close all;
 
 %[audioIn,fs] = audioread('440Hz_44100Hz_16bit_05sec.wav');
-input_morse = morse_code('Hello', 1)
+input_morse = morse_code('Hello world', 1)
 %%
-%[audioIn,fs] = audioread('morse_code_signal.wav');
-[audioIn,fs] = audioread('test.wav');
+[audioIn,fs] = audioread('morse_code_signal.wav');
+%[audioIn,fs] = audioread('test_hello.wav');
 
 figure
 subplot(2,1,1)
@@ -17,6 +17,8 @@ pspectrum(audioIn,fs,'spectrogram', ...
 %   P has a number of rows equal to the length of the frequency vector 
 %   F, and number of columns equal to the length of the time vector T.
 
+title('Spectrogram for "hello" in Morse Code')
+
 max_peaks = [];
 
 for k=1:max(size(T))
@@ -27,7 +29,11 @@ for k=1:max(size(T))
 end
 
 subplot(2,1,2)
-stem(max_peaks(1,:),max_peaks(2,:))
+%stem(max_peaks(1,1:3:end),max_peaks(2,1:3:end)/1000)
+stem(max_peaks(1,:),max_peaks(2,:)/1000)
+title('Extracted Maximum Power Frequency from Spectrogram Over Time')
+xlabel('Time (s)')
+ylabel('Frequency (kHz)')
 
 %%
 value = [];
