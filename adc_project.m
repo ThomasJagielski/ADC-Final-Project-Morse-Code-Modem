@@ -1,10 +1,11 @@
 clear; clc; close all;
 
 %[audioIn,fs] = audioread('440Hz_44100Hz_16bit_05sec.wav');
-input_morse = morse_code('happybirthday', 0)
-%%
-[audioIn,fs] = audioread('morse_code_signal.wav');
-%[audioIn,fs] = audioread('test_hello.wav');
+%input_morse = morse_code('happybirthday', 1)
+%
+%[audioIn,fs] = audioread('morse_code_signal.wav');
+
+[audioIn,fs] = audioread('test.wav');
 
 figure
 subplot(2,1,1)
@@ -104,7 +105,7 @@ decoded_sentence(end + 1) = morse_code_decoder(word_to_decode);
 output_morse
 decoded_sentence
 
-input_sentence = 'hello'
+%input_sentence = 'hello'
 
 %accuracy_rate = mean(input_morse == output_morse)
 %accuracy_rate = mean(input_sentence == decoded_sentence)
