@@ -1,7 +1,7 @@
 clear; clc; close all;
 
 %[audioIn,fs] = audioread('440Hz_44100Hz_16bit_05sec.wav');
-input_morse = morse_code('Hello world', 1)
+input_morse = morse_code('happybirthday', 0)
 %%
 [audioIn,fs] = audioread('morse_code_signal.wav');
 %[audioIn,fs] = audioread('test_hello.wav');
@@ -11,7 +11,8 @@ subplot(2,1,1)
 pspectrum(audioIn,fs,'spectrogram', ...
     'TimeResolution',0.0256,'Overlap',86,'Leakage',0.875, 'FrequencyLimits', [20, 5000])
 
-[P,F,T] = pspectrum(audioIn,fs,'spectrogram', 'FrequencyLimits', [20, 20000]);
+[P,F,T] = pspectrum(audioIn,fs,'spectrogram', 'TimeResolution', 0.25, 'FrequencyLimits', [20, 5000]);
+%[P,F,T] = pspectrum(audioIn,fs,'spectrogram','FrequencyLimits', [20, 5000]);
 %   T contains the time values corresponding to the center of the 
 %   data segments used to compute each short time power spectrum estimate. 
 %   P has a number of rows equal to the length of the frequency vector 
@@ -39,7 +40,7 @@ ylabel('Frequency (kHz)')
 value = [];
 counter = 0;
 for a=1:max(length(max_peaks))
-    if counter >= 7
+    if counter >= 5 %counter >= 77 %counter >= 7
         counter = 0;
         value(end + 1) = 0;
     end
@@ -106,4 +107,4 @@ decoded_sentence
 input_sentence = 'hello'
 
 %accuracy_rate = mean(input_morse == output_morse)
-accuracy_rate = mean(input_sentence == decoded_sentence)
+%accuracy_rate = mean(input_sentence == decoded_sentence)
