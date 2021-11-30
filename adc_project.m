@@ -69,11 +69,10 @@ for a=1:max(length(max_peaks))
                 counter = counter + 1;
             end
         end
-        counter
     end 
 end
 
-value
+%value
 
 output_morse = '';
 word_to_decode = '';
@@ -83,7 +82,6 @@ decoded_sentence = '';
 value = value(find(value,1,'first'):find(value,1,'last'));
 
 for k=1:max(length(value))
-    k
     if (value(k) == 1)
         output_morse(end + 1) = '.';
         word_to_decode(end + 1) = '.';
