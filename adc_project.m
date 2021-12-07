@@ -77,6 +77,8 @@ end
 %value
 
 output_morse = '';
+
+% Initialize variables for decoding Morse to English
 word_to_decode = '';
 decoded_sentence = '';
 
@@ -94,15 +96,20 @@ for k=1:max(length(value))
     if (value(k) == 0 && value(k-1) == 0)
         if output_morse(end) ~= '|'
             output_morse(end + 1) = '|';
+
+            % Invoke the decoder once a letter is fully received
             decoded_sentence(end + 1) = morse_code_decoder(word_to_decode);
             word_to_decode = '';
         end
     end
 end
 
+% Decode the last received letter
 decoded_sentence(end + 1) = morse_code_decoder(word_to_decode);
 
 output_morse
+
+% Print the decoded English word
 decoded_sentence
 
 %input_sentence = 'hello'
