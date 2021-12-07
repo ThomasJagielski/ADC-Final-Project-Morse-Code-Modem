@@ -10,7 +10,7 @@ clear; clc; close all;
 figure
 subplot(2,1,1)
 pspectrum(audioIn,fs,'spectrogram', ...
-    'TimeResolution',0.0256,'Overlap',86,'Leakage',0.875, 'FrequencyLimits', [20, 5000])
+    'TimeResolution',0.0256,'Overlap',86,'Leakage',0.875, 'FrequencyLimits', [20, 5000]);
 
 [P,F,T] = pspectrum(audioIn,fs,'spectrogram', 'TimeResolution', 0.25, 'FrequencyLimits', [20, 5000]);
 %[P,F,T] = pspectrum(audioIn,fs,'spectrogram','FrequencyLimits', [20, 5000]);
