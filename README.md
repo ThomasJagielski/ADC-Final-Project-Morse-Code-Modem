@@ -10,8 +10,10 @@ A high-level block diagram for the process is presented below:
 ![Block Diagram](https://github.com/ThomasJagielski/ADC-Final-Project-Morse-Code-Modem/blob/main/sound-based-morse-code-block-diagram.png)
 
 ### Usage
+### Transmission (TX)
+Run XYZ.m
 
-### Results
+### Receiving (RX)
 On receiving "hello", you should receive the following output on a Spectrogram plot: 
 
 ![Block Diagram](https://github.com/ThomasJagielski/ADC-Final-Project-Morse-Code-Modem/blob/main/spectrogram.png)
