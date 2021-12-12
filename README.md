@@ -16,7 +16,7 @@ Run XYZ.m
 ### Receiving (RX)
 On receiving "hello", you should receive the following output on a Spectrogram plot: 
 
-![Block Diagram](https://github.com/ThomasJagielski/ADC-Final-Project-Morse-Code-Modem/blob/main/spectrogram.png)
+![Block Diagram](https://github.com/ThomasJagielski/ADC-Final-Project-Morse-Code-Modem/blob/main/images/spectrogram.png)
 
 ### Maintained by
 Email: {achu, sbansal, tjagielski}@olin.edu
