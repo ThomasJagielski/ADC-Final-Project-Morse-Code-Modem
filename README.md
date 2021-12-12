@@ -11,9 +11,11 @@ A high-level block diagram for the process is presented below:
 
 ### Usage
 ### Transmission (TX)
-Run XYZ.m
+Run ``adc_project.m`` to transmit the desired message in Morse Code. 
 
 ### Receiving (RX)
+Run ``full_decode.m`` to record a message and decode it from Morse Code to English text. 
+
 On receiving "hello", you should receive the following output on a Spectrogram plot: 
 
 ![Block Diagram](https://github.com/ThomasJagielski/ADC-Final-Project-Morse-Code-Modem/blob/main/images/spectrogram.png)
