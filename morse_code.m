@@ -68,7 +68,7 @@ function [morseText,morseSound] = morse_code(string, playSound)
         sound(morseSound,SamplingFrequency); %Play sound
     end
     
-    audiowrite('morse_code_signal.wav', morseSound, SamplingFrequency);
+    audiowrite('./audio_test_files/morse_code_signal.wav', morseSound, SamplingFrequency);
 
  
 end %morse_code
